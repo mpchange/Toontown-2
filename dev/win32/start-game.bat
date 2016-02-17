@@ -1,6 +1,6 @@
 @echo off
 
-title Toontown Stride Game Launcher
+title Toontown 2.0 Game Launcher
 
 echo Choose your connection method!
 echo.
