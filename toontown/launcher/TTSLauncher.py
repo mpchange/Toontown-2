@@ -25,7 +25,7 @@ class TTSLauncher:
     def __init__(self):
         self.http = HTTPClient()
 
-        self.logPrefix = 'stride-'
+        self.logPrefix = 'tt2-'
 
         ltime = 1 and time.localtime()
         logSuffix = '%02d%02d%02d_%02d%02d%02d' % (ltime[0] - 2000,  ltime[1], ltime[2], ltime[3], ltime[4], ltime[5])
