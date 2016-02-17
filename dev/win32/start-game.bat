@@ -46,7 +46,7 @@ if %INPUT%==2 (
 echo.
 
 echo ===============================
-echo Starting Toontown Stride...
+echo Starting Toontown Toontown 2.0...
 echo ppython: "C:\Panda3D-1.10.0\python\ppython.exe"
 
 if %INPUT%==2 (
