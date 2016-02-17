@@ -1,0 +1,12 @@
+How to Play Toontown 2.0:
+
+1. Copy Panda3d-1.10.0 to C drive on your computer
+2. Go to win32 folder in dev section in the Toontown-2 folder
+3. Run start-astron-cluster.bat
+4. Run start-ai-server.bat
+5. Run start-uberdog-server.bat
+6. Run start-game.bat
+7. Type 1, which is correlated to localhost, in the Command Window for start-game.bat
+8. Type in a username to make your Toon account
+9. Game should start up in a separate window
+10. Have Fun and enjoy Toontown 2.0
