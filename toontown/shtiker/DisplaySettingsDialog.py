@@ -4,8 +4,7 @@ from direct.gui.DirectGui import *
 from direct.task.Task import Task
 from panda3d.core import *
 
-from toontown.toonbase import TTLocalizer
-from toontown.toonbase import ToontownGlobals
+from toontown.toonbase import TTLocalizer, ToontownGlobals
 from toontown.toontowngui import TTDialog
 
 
@@ -54,7 +53,11 @@ class DisplaySettingsDialog(DirectFrame, StateData.StateData):
          (1600, 900),
          (1600, 1200),
          (1920, 1080),
-         (2560, 1440))
+         (2560, 1440),
+         (3840, 2160),
+         (6144, 3072), 
+         (7680, 4320),
+         (10328, 7760))
 
         guiButton = loader.loadModel('phase_3/models/gui/quit_button.bam')
         gui = loader.loadModel('phase_3.5/models/gui/friendslist_gui.bam')

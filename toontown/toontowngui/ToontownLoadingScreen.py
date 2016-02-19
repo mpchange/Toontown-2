@@ -21,7 +21,7 @@ class ToontownLoadingScreen:
         self.waitBar = DirectWaitBar(guiId='ToontownLoadingScreenWaitBar', parent=self.gui, frameSize=(base.a2dLeft+(base.a2dRight/4.95), base.a2dRight-(base.a2dRight/4.95), -0.03, 0.03), pos=(0, 0, 0.15), text='')
         logoScale = 0.5625  # Scale for our locked aspect ratio (2:1).
         self.logo = OnscreenImage(
-            image='phase_3/maps/toontown-logo.png',
+            image='phase_3/maps/toontown-logo.jpg',
             scale=(logoScale * 2.0, 1, logoScale))
         self.logo.reparentTo(hidden)
         self.logo.setTransparency(TransparencyAttrib.MAlpha)
