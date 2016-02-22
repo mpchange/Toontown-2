@@ -120,7 +120,7 @@ speedChatStyles = (
         (210 / 255.0, 200 / 255.0, 180 / 255.0)
     )
 )
-PageMode = PythonUtil.Enum('Options, Codes, Extra')
+PageMode = PythonUtil.Enum('Options, Codes, Extra, Extra2 ')
 
 
 class OptionsPage(ShtikerPage.ShtikerPage):
@@ -132,10 +132,12 @@ class OptionsPage(ShtikerPage.ShtikerPage):
         self.optionsTabPage = None
         self.codesTabPage = None
         self.extraOptionsTabPage = None
+        self.extra2OptionsTabPage = None
         self.title = None
         self.optionsTab = None
         self.codesTab = None
         self.extraOptionsTab = None
+        self.extra2OptionsTab = None
 
     def load(self):
         ShtikerPage.ShtikerPage.load(self)
@@ -146,6 +148,8 @@ class OptionsPage(ShtikerPage.ShtikerPage):
         self.codesTabPage.hide()
         self.extraOptionsTabPage = ExtraOptionsTabPage(self)
         self.extraOptionsTabPage.hide()
+        self.extra2OptionsTabPage = Extra2OptionsTabPage(self)
+        self.extra2OptionsTabPage.hide()
 
         self.title = DirectLabel(
             parent=self, relief=None, text=TTLocalizer.OptionsPageTitle,
@@ -165,7 +169,7 @@ class OptionsPage(ShtikerPage.ShtikerPage):
             image1_color=clickColor, image2_color=rolloverColor,
             image3_color=diabledColor, text_fg=Vec4(0.2, 0.1, 0, 1),
             command=self.setMode, extraArgs=[PageMode.Options],
-            pos=(-0.64, 0, 0.77))
+            pos=(-0.74, 0, 0.77))
         self.codesTab = DirectButton(
             parent=self, relief=None, text=TTLocalizer.OptionsPageCodesTab,
             text_scale=TTLocalizer.OPoptionsTab, text_align=TextNode.ALeft,
@@ -175,7 +179,7 @@ class OptionsPage(ShtikerPage.ShtikerPage):
             image_color=normalColor, image1_color=clickColor,
             image2_color=rolloverColor, image3_color=diabledColor,
             text_fg=Vec4(0.2, 0.1, 0, 1), command=self.setMode,
-            extraArgs=[PageMode.Codes], pos=(-0.12, 0, 0.77))
+            extraArgs=[PageMode.Codes], pos=(-0.32, 0, 0.77))
         self.extraOptionsTab = DirectButton(
             parent=self, relief=None, text=TTLocalizer.ExtraOptionsPageTitle,
             text_scale=TTLocalizer.OPextraOptionsTab, text_align=TextNode.ALeft,
@@ -185,7 +189,17 @@ class OptionsPage(ShtikerPage.ShtikerPage):
             image_color=normalColor, image1_color=clickColor,
             image2_color=rolloverColor, image3_color=diabledColor,
             text_fg=Vec4(0.2, 0.1, 0, 1), command=self.setMode,
-            extraArgs=[PageMode.Extra], pos=(0.42, 0, 0.77))
+            extraArgs=[PageMode.Extra], pos=(0.16, 0, 0.77))
+        self.extra2OptionsTab = DirectButton(
+            parent=self, relief=None, text=TTLocalizer.Extra2OptionsPageTitle,
+            text_scale=TTLocalizer.OPextra2OptionsTab, text_align=TextNode.ALeft,
+            text_pos=(0.027, 0.0, 0.0),
+            image=gui.find('**/tabs/polySurface2'), image_pos=(0.12, 1, -0.91),
+            image_hpr=(0, 0, -90), image_scale=(0.033, 0.033, 0.035),
+            image_color=normalColor, image1_color=clickColor,
+            image2_color=rolloverColor, image3_color=diabledColor,
+            text_fg=Vec4(0.2, 0.1, 0, 1), command=self.setMode,
+            extraArgs=[PageMode.Extra2], pos=(0.60, 0, 0.77))
         gui.removeNode()
 
     def enter(self):
@@ -197,6 +211,7 @@ class OptionsPage(ShtikerPage.ShtikerPage):
         self.optionsTabPage.exit()
         self.codesTabPage.exit()
         self.extraOptionsTabPage.exit()
+        self.extra2OptionsTabPage.exit()
         
         ShtikerPage.ShtikerPage.exit(self)
 
@@ -225,6 +240,10 @@ class OptionsPage(ShtikerPage.ShtikerPage):
             self.extraOptionsTab.destroy()
             self.extraOptionsTab = None
 
+        if self.extra2OptionsTab is not None:
+            self.extra2OptionsTab.destroy()
+            self.extra2OptionsTab = None
+
         ShtikerPage.ShtikerPage.unload(self)
 
     def setMode(self, mode, updateAnyways=0):
@@ -244,12 +263,16 @@ class OptionsPage(ShtikerPage.ShtikerPage):
             self.codesTabPage.exit()
             self.extraOptionsTab['state'] = DGG.NORMAL
             self.extraOptionsTabPage.exit()
+            self.extra2OptionsTab['state'] = DGG.NORMAL
+            self.extra2OptionsTabPage.exit()
         elif mode == PageMode.Codes:
             self.title['text'] = TTLocalizer.CdrPageTitle
             self.optionsTab['state'] = DGG.NORMAL
             self.optionsTabPage.exit()
             self.extraOptionsTab['state'] = DGG.NORMAL
             self.extraOptionsTabPage.exit()
+            self.extra2OptionsTab['state'] = DGG.NORMAL
+            self.extra2OptionsTabPage.exit()
             self.codesTab['state'] = DGG.DISABLED
             self.codesTabPage.enter()
         elif mode == PageMode.Extra:
@@ -258,8 +281,20 @@ class OptionsPage(ShtikerPage.ShtikerPage):
             self.optionsTabPage.exit()
             self.codesTab['state'] = DGG.NORMAL
             self.codesTabPage.exit()
+            self.extra2OptionsTab['state'] = DGG.NORMAL
+            self.extra2OptionsTabPage.exit()
             self.extraOptionsTab['state'] = DGG.DISABLED
             self.extraOptionsTabPage.enter()
+        elif mode == PageMode.Extra2:
+            self.title['text'] = TTLocalizer.Extra2OptionsPageTitle
+            self.optionsTab['state'] = DGG.NORMAL
+            self.optionsTabPage.exit()
+            self.codesTab['state'] = DGG.NORMAL
+            self.codesTabPage.exit()
+            self.extraOptionsTab['state'] = DGG.NORMAL
+            self.extraOptionsTabPage.exit()
+            self.extra2OptionsTab['state'] = DGG.DISABLED
+            self.extra2OptionsTabPage.enter()
 
 class OptionsTabPage(DirectFrame):
     notify = directNotify.newCategory('OptionsTabPage')
@@ -893,3 +928,43 @@ class ExtraOptionsTabPage(DirectFrame):
 
         if value > 0:
             webbrowser.open(ToontownGlobals.BugReportSite, new=2, autoraise=True)
+
+class Extra2OptionsTabPage(DirectFrame):
+    notify = directNotify.newCategory('Extra2OptionsTabPage')
+
+    def __init__(self, parent = aspect2d):
+        self.parent = parent
+        self.currentSizeIndex = None
+
+        DirectFrame.__init__(self, parent=self.parent, relief=None, pos=(0.0, 0.0, 0.0), scale=(1.0, 1.0, 1.0))
+
+        self.load()
+
+    def destroy(self):
+        self.parent = None
+        DirectFrame.destroy(self)
+
+    def load(self):
+        guiButton = loader.loadModel('phase_3/models/gui/quit_button')
+        circleModel = loader.loadModel('phase_3/models/gui/tt_m_gui_mat_nameShop')
+        titleHeight = 0.61
+        textStartHeight = 0.45
+        textRowHeight = 0.145
+        leftMargin = -0.72
+        buttonbase_xcoord = 0.35
+        buttonbase_ycoord = 0.45
+        button_image_scale = (0.7, 1, 1)
+        button_textpos = (0, -0.02)
+        options_text_scale = 0.052
+        disabled_arrow_color = Vec4(0.6, 0.6, 0.6, 1.0)
+        button_image = (guiButton.find('**/QuitBtn_UP'), guiButton.find('**/QuitBtn_DN'), guiButton.find('**/QuitBtn_RLVR'))
+        self.speed_chat_scale = 0.055
+        
+    def enter(self):
+        self.show()
+        self.settingsChanged = 0
+
+
+    def exit(self):
+        self.ignoreAll()
+        self.hide()
