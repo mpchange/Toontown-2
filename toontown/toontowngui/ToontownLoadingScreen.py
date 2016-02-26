@@ -27,12 +27,15 @@ class ToontownLoadingScreen:
         self.logo.setTransparency(TransparencyAttrib.MAlpha)
         scale = self.logo.getScale()
         self.logo.setPos(0, 0, -scale[2])
+        self.toon = None
 
     def destroy(self):
         self.tip.destroy()
         self.title.destroy()
         self.gui.removeNode()
         self.logo.removeNode()
+        if self.toon:
+            self.toon.delete()
 
     def getTip(self, tipCategory):
         return TTLocalizer.TipTitle + ' ' + random.choice(TTLocalizer.TipDict.get(tipCategory))
@@ -44,6 +47,34 @@ class ToontownLoadingScreen:
         self.__count = 0
         self.__expectedCount = range
         if gui:
+            if base.localAvatarStyle:
+                from toontown.toon import Toon
+                bored = {'emote':'bored', 'frame':135} #must define before list
+                run = {'emote':'run', 'frame':7}
+                victory = {'emote':'victory', 'frame':10}
+                applause = {'emote':'applause', 'frame':23}
+                dust = {'emote':'sprinkle-dust', 'frame':40}
+                hypno = {'emote':'hypnotize', 'frame':25}
+                cringe = {'emote':'cringe', 'frame':25}
+                wave = {'emote':'wave', 'frame':25}
+                shrug = {'emote':'shrug', 'frame':30}
+                duck = {'emote':'duck', 'frame':40}
+                up = {'emote':'up', 'frame':60}
+                pushup = {'emote':'down', 'frame':23}
+                bow = {'emote':'bow', 'frame':45}
+                emotelist = [bored, run, victory, applause, dust,
+                             hypno, cringe, wave, shrug, duck,
+                             up, pushup, bow]
+                emotechosen = random.choice(emotelist)
+                self.toon = Toon.Toon()
+                self.toon.setDNA(base.localAvatarStyle)
+                self.toon.pose(emotechosen['emote'], emotechosen['frame'])
+                self.toon.getGeomNode().setDepthWrite(1)
+                self.toon.getGeomNode().setDepthTest(1)
+                self.toon.setHpr(205, 0, 0)
+                self.toon.setScale(0.18)
+                self.toon.setPos(base.a2dBottomRight.getX()/1.25, 0, -0.034)
+                self.toon.reparentTo(self.waitBar)
             self.waitBar['frameSize'] = (base.a2dLeft+(base.a2dRight/4.95), base.a2dRight-(base.a2dRight/4.95), -0.03, 0.03)
             self.title['text_font'] = info[1]
             self.title['text_fg'] = info[2]
@@ -69,6 +100,8 @@ class ToontownLoadingScreen:
         self.tip.reparentTo(self.gui)
         self.gui.reparentTo(hidden)
         self.logo.reparentTo(hidden)
+        if self.toon:
+            self.toon.reparentTo(hidden)
         return (self.__expectedCount, self.__count)
 
     def abort(self):
