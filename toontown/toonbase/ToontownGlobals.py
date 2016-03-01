@@ -243,12 +243,12 @@ def dept2cogHQ(dept):
      's': SellbotHQ}
     return dept2hq[dept]
 
-MintNumFloors = {CashbotMintIntA: 20,
- CashbotMintIntB: 20,
- CashbotMintIntC: 20}
 CashbotMintCogLevel = 10
 CashbotMintSkelecogLevel = 11
 CashbotMintBossLevel = 12
+MintNumFloors = {CashbotMintIntA: 20,
+ CashbotMintIntB: 20,
+ CashbotMintIntC: 20}
 MintNumBattles = {CashbotMintIntA: 4,
  CashbotMintIntB: 6,
  CashbotMintIntC: 8}
@@ -1544,6 +1544,8 @@ DG = 5
 BR = 6
 OZ = 7
 DL = 8
+DefaultWantNewsPageSetting = 1
+NewsPageScaleAdjust = 0.85
 AnimPropTypes = Enum(('Unknown',
  'Hydrant',
  'Mailbox',

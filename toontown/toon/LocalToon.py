@@ -52,9 +52,14 @@ from toontown.toon.DistributedNPCToonBase import DistributedNPCToonBase
 from toontown.toonbase import TTLocalizer
 from toontown.toonbase import ToontownGlobals
 from toontown.toonbase.ToontownGlobals import *
+from toontown.toontowngui import NewsPageButtonManager
 from toontown.friends.FriendHandle import FriendHandle
 
-ClaraBaseXPos = 0.12
+WantNewsPage = base.config.GetBool('want-news-page', ToontownGlobals.DefaultWantNewsPageSetting)
+if WantNewsPage:
+    from toontown.shtiker import NewsPage
+AdjustmentForNewsButton = -0.275
+ClaraBaseXPos = 0.08 if WantNewsPage else 0.12
 
 class LocalToon(DistributedToon.DistributedToon, LocalAvatar.LocalAvatar):
     neverDisable = 1
@@ -82,7 +87,10 @@ class LocalToon(DistributedToon.DistributedToon, LocalAvatar.LocalAvatar):
             friendsButtonNormal = friendsGui.find('**/FriendsBox_Closed')
             friendsButtonPressed = friendsGui.find('**/FriendsBox_Rollover')
             friendsButtonRollover = friendsGui.find('**/FriendsBox_Rollover')
-            self.bFriendsList = DirectButton(image=(friendsButtonNormal, friendsButtonPressed, friendsButtonRollover), relief=None, pos=(-0.141, 0, -0.125), parent=base.a2dTopRight, scale=0.8, text=('', TTLocalizer.FriendsListLabel, TTLocalizer.FriendsListLabel), text_scale=0.09, text_fg=Vec4(1, 1, 1, 1), text_shadow=Vec4(0, 0, 0, 1), text_pos=(0, -0.18), text_font=ToontownGlobals.getInterfaceFont(), command=self.sendFriendsListEvent)
+            newScale = oldScale = 0.8
+            if WantNewsPage:
+                newScale = oldScale * ToontownGlobals.NewsPageScaleAdjust
+            self.bFriendsList = DirectButton(image=(friendsButtonNormal, friendsButtonPressed, friendsButtonRollover), relief=None, pos=(-0.141, 0, -0.125), parent=base.a2dTopRight, scale=newScale, text=('', TTLocalizer.FriendsListLabel, TTLocalizer.FriendsListLabel), text_scale=0.09, text_fg=Vec4(1, 1, 1, 1), text_shadow=Vec4(0, 0, 0, 1), text_pos=(0, -0.18), text_font=ToontownGlobals.getInterfaceFont(), command=self.sendFriendsListEvent)
             self.bFriendsList.hide()
             self.friendsListButtonActive = 0
             self.friendsListButtonObscured = 0
@@ -146,6 +154,9 @@ class LocalToon(DistributedToon.DistributedToon, LocalAvatar.LocalAvatar):
             self.accept(self.systemMsgAckGuiDoneEvent, self.hideSystemMsgAckGui)
             self.systemMsgAckGui = None
             self.createSystemMsgAckGui()
+            if not hasattr(base.cr, 'lastLoggedIn'):
+                base.cr.lastLoggedIn = self.cr.toontownTimeManager.convertStrToToontownTime('')
+            self.setLastTimeReadNews(base.cr.lastLoggedIn)
             self.acceptingNewFriends = True
             self.acceptingNonFriendWhispers = True
             self.acceptingTeleport = True
@@ -232,6 +243,7 @@ class LocalToon(DistributedToon.DistributedToon, LocalAvatar.LocalAvatar):
         del self.laffMeter
         self.questMap.destroy()
         self.questMap = None
+        self.newsButtonMgr.request('Off')
         self.book.unload()
         del self.optionsPage
         del self.shardPage
@@ -297,6 +309,8 @@ class LocalToon(DistributedToon.DistributedToon, LocalAvatar.LocalAvatar):
         return
 
     def initInterface(self):
+        self.newsButtonMgr = NewsPageButtonManager.NewsPageButtonManager()
+        self.newsButtonMgr.request('Hidden')
         self.book = ShtikerBook.ShtikerBook('bookDone')
         self.book.load()
         self.book.hideButton()
@@ -338,6 +352,8 @@ class LocalToon(DistributedToon.DistributedToon, LocalAvatar.LocalAvatar):
         self.photoPage.load()
         self.book.addPage(self.photoPage, pageName=TTLocalizer.PhotoPageTitle)
         self.addEventsPage()
+        if WantNewsPage:
+            self.addNewsPage()
         self.book.setPage(self.mapPage, enterPage=False)
         self.laffMeter = LaffMeter.LaffMeter(self.style, self.hp, self.maxHp)
         self.laffMeter.setAvatar(self)
@@ -798,6 +814,23 @@ class LocalToon(DistributedToon.DistributedToon, LocalAvatar.LocalAvatar):
         if self.__furnitureGui:
             self.__furnitureGui.hide()
 
+    def clarabelleNewsPageCollision(self, show = True):
+        if self.__clarabelleButton == None:
+            return
+        claraXPos = ClaraBaseXPos
+        notifyXPos = CatalogNotifyDialog.CatalogNotifyBaseXPos
+        if show:
+            claraXPos += AdjustmentForNewsButton
+            notifyXPos += AdjustmentForNewsButton
+        newPos = (claraXPos - 0.1, 1.0, 0.45)
+        self.__clarabelleButton.setPos(newPos)
+        if self.__catalogNotifyDialog == None or self.__catalogNotifyDialog.frame == None:
+            return
+        notifyPos = self.__catalogNotifyDialog.frame.getPos()
+        notifyPos[0] = notifyXPos
+        self.__catalogNotifyDialog.frame.setPos(notifyPos)
+        return
+
     def loadClarabelleGui(self):
         if self.__clarabelleButton:
             return
@@ -809,6 +842,12 @@ class LocalToon(DistributedToon.DistributedToon, LocalAvatar.LocalAvatar):
         white = VBase4(1.0, 1.0, 1.0, 1.0)
         icon.setColor(white)
         claraXPos = ClaraBaseXPos
+        newScale = oldScale = 0.5
+        newPos = (claraXPos, 1.0, -0.63)
+        if WantNewsPage:
+            claraXPos += AdjustmentForNewsButton
+            newScale = oldScale * ToontownGlobals.NewsPageScaleAdjust
+            newPos = (claraXPos - 0.1, 1.0, -0.63)
         self.__clarabelleButton = DirectButton(relief=None, image=circle, text='', text_fg=(1, 1, 1, 1), text_shadow=(0, 0, 0, 1), text_scale=0.1, text_pos=(-1.06, 1.06), text_font=ToontownGlobals.getInterfaceFont(), pos=(claraXPos, 1.0, -0.63), scale=0.5, command=self.__handleClarabelleButton)
         self.__clarabelleButton.reparentTo(base.a2dTopRight, DGG.BACKGROUND_SORT_INDEX - 1)
         button = self.__clarabelleButton.stateNodePath[0]
@@ -825,6 +864,8 @@ class LocalToon(DistributedToon.DistributedToon, LocalAvatar.LocalAvatar):
             self.__clarabelleButton['text'] = ['', TTLocalizer.CatalogNewCatalogButton, TTLocalizer.CatalogNewCatalogButton]
         if not self.mailboxNotify and not self.awardNotify and self.catalogNotify == ToontownGlobals.OldItems and (self.simpleMailNotify != ToontownGlobals.NoItems or self.inviteMailNotify != ToontownGlobals.NoItems):
             self.__clarabelleButton['text'] = ['', TTLocalizer.MailNewMailButton, TTLocalizer.MailNewMailButton]
+        if self.newsButtonMgr.isNewIssueButtonShown():
+            self.clarabelleNewsPageCollision(True)
         self.__clarabelleButton.show()
         self.__clarabelleFlash.resume()
 
@@ -1578,6 +1619,11 @@ class LocalToon(DistributedToon.DistributedToon, LocalAvatar.LocalAvatar):
         self.book.addPage(self.eventsPage, pageName=TTLocalizer.EventsPageName)
         return
 
+    def addNewsPage(self):
+        self.newsPage = NewsPage.NewsPage()
+        self.newsPage.load()
+        self.book.addPage(self.newsPage, pageName=TTLocalizer.NewsPageName)
+
     def setSpecialInventory(self, specialInventory):
         DistributedToon.DistributedToon.setSpecialInventory(self, specialInventory)
         self.inventory.updateTotalPropsText()
@@ -1622,6 +1668,12 @@ class LocalToon(DistributedToon.DistributedToon, LocalAvatar.LocalAvatar):
         elif av:
             self.notify.warning('setSleepAutoReply from non-toon %s' % fromId)
 
+    def setLastTimeReadNews(self, newTime):
+        self.lastTimeReadNews = newTime
+
+    def getLastTimeReadNews(self):
+        return self.lastTimeReadNews
+
     def cheatCogdoMazeGame(self, kindOfCheat = 0):
         if base.config.GetBool('allow-cogdo-maze-suit-hit-cheat'):
             maze = base.cr.doFind('DistCogdoMazeGame')
@@ -1637,6 +1689,17 @@ class LocalToon(DistributedToon.DistributedToon, LocalAvatar.LocalAvatar):
 
         else:
             self.sendUpdate('logSuspiciousEvent', ['cheatCogdoMazeGame'])
+
+    def isReadingNews(self):
+        result = False
+        if base.cr and base.cr.playGame and base.cr.playGame.getPlace() and hasattr(base.cr.playGame.getPlace(), 'fsm') and base.cr.playGame.getPlace().fsm:
+            fsm = base.cr.playGame.getPlace().fsm
+            curState = fsm.getCurrentState().getName()
+            if curState == 'stickerBook' and WantNewsPage:
+                if hasattr(self, 'newsPage'):
+                    if self.book.isOnPage(self.newsPage):
+                        result = True
+        return result
 
     def doTeleportResponse(self, fromAvatar, toAvatar, avId, available, shardId, hoodId, zoneId, sendToId):
         self.d_teleportResponse(avId, available, shardId, hoodId, zoneId, sendToId)

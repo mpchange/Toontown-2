@@ -19,7 +19,7 @@ vfs-mount resources/server /server
 model-path /
 
 # Server:
-server-version 1.2.2
+server-version 1.3.0
 min-access-level 700
 accountdb-type developer
 shard-low-pop 50
@@ -45,6 +45,8 @@ want-checkers #t
 want-house-types #t
 want-gifting #t
 want-top-toons #f
+want-news-page #t 
+want-news-tab #t
 
 # Chat:
 want-whitelist #f

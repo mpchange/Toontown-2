@@ -449,6 +449,7 @@ from toontown.cogdominium import DistCogdoCraneCog/AI
 from toontown.parties.GlobalPartyManager/AI/UD import GlobalPartyManager/AI/UD
 //from toontown.uberdog.GlobalLobbyManager/AI/UD import GlobalLobbyManager/AI/UD
 from toontown.uberdog.ARGManager import ARGManager
+from toontown.uberdog.DistributedInGameNewsMgr/AI/UD import DistributedInGameNewsMgr/AI/UD
 
 struct gardenSpecial {
   uint8 index;
@@ -3175,6 +3176,12 @@ dclass ClientServicesManager : DistributedObjectGlobal {
 dclass TTCodeRedemptionMgr : DistributedObject {
   redeemCode(char [0-50]) airecv clsend;
   redeemCodeResult(uint8);
+};
+
+dclass DistributedInGameNewsMgr : DistributedObjectGlobal {
+  setLatestIssueStr(string) required broadcast ram;
+  inGameNewsMgrAIStartingUp(uint32, uint32);
+  newIssueUDtoAI(string) airecv;
 };
 
 struct Friend

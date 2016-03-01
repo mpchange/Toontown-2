@@ -233,7 +233,7 @@ def doSuitAttack(attack):
     elif name == SHRED:
         suitTrack = doShred(attack)
     elif name == SONG_AND_DANCE:
-        suitTrack = doDefault(attack)
+        suitTrack = doSongAndDance(attack)
     elif name == SPIN:
         suitTrack = doSpin(attack)
     elif name == SYNERGY:
@@ -757,7 +757,6 @@ def getSplicedAnimsTrack(anims, actor = None):
 
     return track
 
-
 def getSplicedLerpAnims(animName, origDuration, newDuration, startTime = 0, fps = 30, reverse = 0):
     anims = []
     addition = 0
@@ -775,14 +774,12 @@ def getSplicedLerpAnims(animName, origDuration, newDuration, startTime = 0, fps 
 
     return anims
 
-
 def getSoundTrack(fileName, delay = 0.01, duration = None, node = None):
     soundEffect = globalBattleSoundCache.getSound(fileName)
     if duration:
         return Sequence(Wait(delay), SoundInterval(soundEffect, duration=duration, node=node))
     else:
         return Sequence(Wait(delay), SoundInterval(soundEffect, node=node))
-
 
 def doClipOnTie(attack):
     suit = attack['suit']
@@ -817,7 +814,6 @@ def doClipOnTie(attack):
     throwSound = getSoundTrack('SA_powertie_throw.ogg', delay=throwDelay + 1, node=suit)
     return Parallel(suitTrack, toonTrack, tiePropTrack, throwSound)
 
-
 def doPoundKey(attack):
     suit = attack['suit']
     battle = attack['battle']
@@ -835,7 +831,6 @@ def doPoundKey(attack):
     soundTrack = getSoundTrack('SA_hangup.ogg', delay=1.3, node=suit)
     return Parallel(suitTrack, toonTrack, propTrack, partTrack, soundTrack)
 
-
 def doShred(attack):
     suit = attack['suit']
     battle = attack['battle']
@@ -852,7 +847,19 @@ def doShred(attack):
     soundTrack = getSoundTrack('SA_shred.ogg', delay=3.4, node=suit)
     return Parallel(suitTrack, paperPropTrack, shredderPropTrack, partTrack, toonTrack, soundTrack)
 
-
+def doSongAndDance(attack):
+    suit = attack['suit']
+    battle = attack['battle']
+    suitTrack = getSuitTrack(attack)
+    club = globalPropPool.getProp('golf-club')
+    club2 = globalPropPool.getProp('golf-club')
+    clubPosPoints = [MovieUtil.PNT3_ZERO, VBase3(63.097, 43.988, -18.435)]
+    clubPropTrack = getPropTrack(club, suit.getLeftHand(), clubPosPoints, 0.0, 5.5, Point3(1.1, 1.1, 1.1))
+    club2PropTrack = getPropTrack(club2, suit.getRightHand(), clubPosPoints, 0.0, 5.5, Point3(1.1, 1.1, 1.1))
+    toonTrack = getToonTrack(attack, suitTrack.getDuration() - 1.8, ['cringe'], suitTrack.getDuration() - 1.8, ['applause'])
+    soundTrack = getSoundTrack('AA_heal_happydance.ogg', node=suit)
+    return Parallel(suitTrack, clubPropTrack, club2PropTrack, toonTrack, soundTrack)
+ 
 def doFillWithLead(attack):
     suit = attack['suit']
     battle = attack['battle']

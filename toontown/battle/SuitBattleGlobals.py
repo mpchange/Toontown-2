@@ -3170,7 +3170,7 @@ def getAttackTaunt(attackName, index = None):
 
 
 SuitAttackTaunts = TTLocalizer.SuitAttackTaunts
-DisabledAttacks = ('Gavel', 'SongAndDance', 'SandTrap', 'FloodTheMarket', 'FiveOClockShadow')
+DisabledAttacks = ('Gavel', 'SandTrap', 'FloodTheMarket', 'FiveOClockShadow')
 
 def getAttacksByType(attributes):
     groupAttacks = []

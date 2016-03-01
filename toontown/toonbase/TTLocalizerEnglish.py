@@ -2988,6 +2988,15 @@ SuitAttackTaunts = {'Audit': ["I believe your books don't balance.",
            "We don't want this to fall into the wrong hands.",
            'Easy come, easy go.',
            "Isn't this your last shred of hope?"],
+ 'SongAndDance': ['Oh, whoa whoa whoa...',
+                  'You know you love me, I know you care.',
+                  "Just shout whenever, and I'll be there.",
+                  "We're just friends - what are you saying?",
+                  'Baby, baby, baby, oh...',
+                  "It's like dreaming with your feet.",
+                  'Never miss a chance to dance!',
+                  'When you feel sad, dance!',
+                  'I never dance to forget.'],
  'Spin': ['What do you say we go for a little spin?',
           'Do you use the spin cycle?',
           "This'll really make your head spin!",
@@ -3366,6 +3375,25 @@ EventsPageInvitedTabTitle = 'Party Invitations'
 EventsPageInvitedTabInvitationListTitle = 'Invitations'
 EventsPageInvitedTabActivityListTitle = 'Activities'
 EventsPageInvitedTabTime = '%s %s Toontown Time'
+EventsPageNewsTabName = 'News'
+EventsPageNewsTabTitle = 'News'
+EventsPageNewsDownloading = 'Retrieving News...'
+EventsPageNewsUnavailable = 'Chip and Dale played with the printing press. News not available.'
+EventsPageNewsPaperTitle = 'TOONTOWN TIMES'
+EventsPageNewsLeftSubtitle = 'Still only 1 Jellybean'
+EventsPageNewsRightSubtitle = 'Established toon-thousand nine'
+NewsPageName = 'News'
+NewsPageImportError = 'Whoops! There is an issue loading the "Toon News ... for the Amused!" Please check back later.'
+NewsPageDownloadingNewsSubstr = 'Stay Tooned, while we bring you the latest issue of the \n"Toon News ... for the Amused!"'
+NewsPageDownloadingNews0 = NewsPageDownloadingNewsSubstr + ' %s%% Complete.'
+NewsPageDownloadingNews1 = NewsPageDownloadingNewsSubstr + ' %s%% Complete..'
+NewsPageDownloadingNews2 = NewsPageDownloadingNewsSubstr + ' %s%% Complete...'
+NewsPageErrorDownloadingFile = 'Whoops! Page %s is missing from "Toon News ... for the Amused!" Please check back later.'
+NewsPageErrorDownloadingFileCanStillRead = 'Whoops! Page %s \nis missing from the "Toon News ... for the Amused!" \nTurn the page to continue, while we work to get this page back.'
+NewsPageNoIssues = 'Whoops! The "Toon News ... for the Amused!" has gone missing! \nStay Tooned ... while we work to bring the news back!'
+IssueFrameThisWeek = 'this week'
+IssueFrameLastWeek = 'last week'
+IssueFrameWeeksAgo = '%d weeks ago'
 SelectedInvitationInformation = '%s is having a party on %s at %s Toontown Time.'
 PartyPlannerNextButton = 'Continue'
 PartyPlannerPreviousButton = 'Back'
