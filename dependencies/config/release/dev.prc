@@ -19,7 +19,7 @@ vfs-mount resources/server /server
 model-path /
 
 # Server:
-server-version 1.3.2
+server-version 1.4.0
 min-access-level 700
 accountdb-type developer
 shard-low-pop 50
