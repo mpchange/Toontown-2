@@ -8827,11 +8827,6 @@ FpsMeterLabelOff = 'The frame rate meter is off.'
 
 DefaultDoodleName = 'Smiley'
 
-PickTrackTitle = 'Pick your third track!'
-PickTrackNotice = 'Choose a track!'
-UnknownTrack = 'None'
-PropIdToName = [InventoryHealString, MovieNPCSOSTrap, MovieNPCSOSLure, MovieNPCSOSSound, MovieNPCSOSThrow, MovieNPCSOSSquirt, MovieNPCSOSDrop]
-
 Blacklist = [
  "$1ut",
  "$h1t",
