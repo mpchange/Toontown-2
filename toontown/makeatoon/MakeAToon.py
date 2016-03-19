@@ -15,6 +15,7 @@ import GenderShop
 from MakeAToonGlobals import *
 import MakeClothesGUI
 import NameShop
+import TrackShop
 from otp.avatar import Avatar
 from otp.nametag.NametagConstants import *
 from toontown.distributed.ToontownMsgTypes import *
@@ -57,8 +58,9 @@ class MakeAToon(StateData.StateData):
          State.State('GenderShop', self.enterGenderShop, self.exitGenderShop, ['BodyShop']),
          State.State('BodyShop', self.enterBodyShop, self.exitBodyShop, ['GenderShop', 'ColorShop']),
          State.State('ColorShop', self.enterColorShop, self.exitColorShop, ['BodyShop', 'ClothesShop']),
-         State.State('ClothesShop', self.enterClothesShop, self.exitClothesShop, ['ColorShop', 'NameShop']),
-         State.State('NameShop', self.enterNameShop, self.exitNameShop, ['ClothesShop']),
+         State.State('ClothesShop', self.enterClothesShop, self.exitClothesShop, ['ColorShop', 'TrackShop']),
+         State.State('TrackShop', self.enterTrackShop, self.exitTrackShop, ['ClothesShop', 'NameShop']),
+         State.State('NameShop', self.enterNameShop, self.exitNameShop, ['TrackShop']),
          State.State('Done', self.enterDone, self.exitDone, [])], 'Init', 'Done')
         self.parentFSM = parentFSM
         self.parentFSM.getStateNamed('createAvatar').addChild(self.fsm)
@@ -66,6 +68,7 @@ class MakeAToon(StateData.StateData):
         self.bs = BodyShop.BodyShop('BodyShop-done')
         self.cos = ColorShop.ColorShop('ColorShop-done')
         self.cls = MakeClothesGUI.MakeClothesGUI('ClothesShop-done')
+        self.ts = TrackShop.TrackShop('TrackShop-done')
         self.ns = NameShop.NameShop(self, 'NameShop-done', avList, index)
         self.shop = GENDERSHOP
         self.shopsVisited = []
@@ -310,11 +313,13 @@ class MakeAToon(StateData.StateData):
         self.bs.unload()
         self.cos.unload()
         self.cls.unload()
+        self.ts.unload()
         self.ns.unload()
         del self.gs
         del self.bs
         del self.cos
         del self.cls
+        del self.ts
         del self.ns
         self.guiTopBar.destroy()
         self.guiBottomBar.destroy()
@@ -421,6 +426,8 @@ class MakeAToon(StateData.StateData):
             self.fsm.request('ColorShop')
         elif self.shop == COLORSHOP:
             self.fsm.request('ClothesShop')
+        elif self.shop == CLOTHESSHOP:
+            self.fsm.request('TrackShop')
         else:
             self.fsm.request('NameShop')
 
@@ -432,8 +439,10 @@ class MakeAToon(StateData.StateData):
             self.fsm.request('BodyShop')
         elif self.shop == CLOTHESSHOP:
             self.fsm.request('ColorShop')
-        else:
+        elif self.shop == TRACKSHOP:
             self.fsm.request('ClothesShop')
+        elif self.shop == NAMESHOP:
+            self.fsm.request('TrackShop')
 
     def enterInit(self):
         pass
@@ -582,6 +591,44 @@ class MakeAToon(StateData.StateData):
             self.goToNextShop()
         else:
             self.cls.hideButtons()
+            self.goToLastShop()
+
+    def trackShopOpening(self):
+        self.guiNextButton.show()
+        self.guiLastButton.show()
+        self.ts.load()
+        self.ts.showButtons()
+
+    def enterTrackShop(self):
+        self.shop = TRACKSHOP
+        self.guiTopBar['text'] = TTLocalizer.PickTrackTitle
+        self.guiTopBar['text_fg'] = (0.607, 0.06, 0.117, 1)
+        self.guiTopBar['text_scale'] = TTLocalizer.MATenterTrackShop
+        self.accept('TrackShop-done', self.__handleTrackShopDone)
+        self.dropRoom(self.genderWalls, self.genderProps)
+        self.toon.setScale(self.toonScale)
+        self.spotlight.setPos(2, -1.95, 0.41)
+        self.toon.setPos(Point3(1.5, -4, 0))
+        self.toon.setH(120)
+        self.rotateLeftButton.hide()
+        self.rotateRightButton.hide()
+        self.trackShopOpening()
+        self.ts.enter()
+
+    def exitTrackShop(self):
+        self.squishRoom(self.genderWalls)
+        self.squishProp(self.genderProps)
+        self.ts.exit()
+        self.ignore('TrackShop-done')
+
+    def __handleTrackShopDone(self):
+        self.guiNextButton.hide()
+        self.guiLastButton.hide()
+        self.ts.hideButtons()
+        self.ns.thirdTrack = self.ts.index
+        if self.ts.doneStatus == 'next':
+            self.goToNextShop()
+        else:
             self.goToLastShop()
 
     def nameShopOpening(self, task):
