@@ -56,12 +56,25 @@ class DisplaySettingsDialog(DirectFrame, StateData.StateData):
          (1440, 900),
          (1600, 900),
          (1600, 1200),
+         (1828, 1332),
          (1920, 1080),
+         (1998, 1080),
+         (2048, 858),
+         (2048, 1556),
          (2560, 1440),
+         (3656, 2664),
          (3840, 2160),
+         (3996, 2160),
+         (4096, 1714),
+         (4096, 2160),
+         (4096, 3112),
+         (5616, 4096),
          (6144, 3072), 
+         (6144, 3160),
          (7680, 4320),
-         (10328, 7760))
+         (8192, 4608),
+         (10328, 7760),
+         (28000, 9334))
 
         guiButton = loader.loadModel('phase_3/models/gui/quit_button.bam')
         gui = loader.loadModel('phase_3.5/models/gui/friendslist_gui.bam')
