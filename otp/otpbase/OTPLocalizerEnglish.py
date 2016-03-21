@@ -47,12 +47,10 @@ ChatManagerWhisperTo = 'Whisper to:'
 ChatManagerWhisperToName = 'Whisper To:\n%s'
 ChatManagerCancel = lCancel
 ChatManagerWhisperOffline = '%s is offline.'
-# True Friends
 NoTrueFriendsTitle = 'Open Chat With True Friends'
-NoTrueFriends = 'Open Chat with True Friends allows real-life friends to chat openly with each other by means of a True Friend Code that must be shared outside of the game.\n\nTo activate these features or to learn more, exit Toontown and then click on Membership and select Manage Account. Log in to edit your "Community Settings."'
-# Speedchat Plus
+NoTrueFriends = 'Open Chat with True Friends allows real-life friends to chat openly with each other by means of a True Friend Code that must be shared outside of the game.'
 NoSpeedchatPlusTitle = 'Chat Button'
-NoSpeedchatPlus = 'You can use the blue Chat button to communicate with other Toons by using Speechat Plus or Open Chat with True Friends.\n\nSpeedchat Plus is a form of type chat that allows users to communicate by using the SpeedChat Plus dictionary.\n\nOpen Chat with True Friends allows real-life friends to chat openly with each other by means of a True Friend Code that must be shared outside of the game.\n\nTo activate these features or to learn more, exit Toontown and then click on Membership and select Manage Account.  Log in to edit your "Community Settings."'
+NoSpeedchatPlus = 'You can use the blue Chat button to communicate with other Toons by using Speechat Plus or Open Chat with True Friends.\n\nSpeedchat Plus is a form of type chat that allows users to communicate by using the SpeedChat Plus dictionary.\n\nOpen Chat with True Friends allows real-life friends to chat openly with each other by means of a True Friend Code that must be shared outside of the game.'
 NoTrueFriendsOK = lOK
 WhisperToFormat = 'To %s %s'
 WhisperToFormatName = 'To %s'
@@ -144,7 +142,7 @@ CRNameAccepted = 'Your name has been\napproved by the Toon Council.\n\nFrom this
 CRMaintenanceCountdownMessage = 'Attention Toons! Toontown 2.0 will be going down for maintenance in %d minutes.'
 CRMaintenanceMessage = 'Attention Toons! Toontown 2.0 is now going down for maintenance.'
 AfkForceAcknowledgeMessage = 'Your toon got sleepy and went to bed.'
-CREnteringToontown = 'Entering...'
+CREnteringToontown = 'Entering Toontown 2.0'
 DialogSpecial = 'ooo'
 DialogExclamation = '!'
 DialogQuestion = '?'
@@ -718,7 +716,7 @@ SpeedChatStaticTextToontown = {100: 'Hi!',
  103: 'Hey!',
  104: 'Howdy!',
  105: 'Hi everybody!',
- 106: 'Welcome to Toontown!',
+ 106: 'Welcome to Toontown 2.0!',
  107: "What's up?",
  108: 'How are you doing?',
  109: 'Hello?',
