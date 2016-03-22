@@ -44,7 +44,8 @@ class DisplaySettingsDialog(DirectFrame, StateData.StateData):
         self.anyChanged = 0
         self.apiChanged = 0
 
-        self.screenSizes = ((426, 240),
+        self.screenSizes = ((256, 144),
+         (426, 240),
          (640, 360),
          (640, 480),
          (854, 480),
