@@ -62,15 +62,30 @@ class DistributedSuitBase(DistributedAvatar.DistributedAvatar, Suit.Suit, SuitBa
         self.skeleRevives = num
         if num > self.maxSkeleRevives:
             self.maxSkeleRevives = num
-        if self.getSkeleRevives() > 0:
+        if self.getSkeleRevives() == 1:
             nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self.name,
              'dept': self.getStyleDept(),
-             'level': '%s%s' % (self.getActualLevel(), TTLocalizer.SkeleRevivePostFix % (self.skeleRevives + 1))}
+             'level': '%s%s' % (self.getActualLevel(), TTLocalizer.SkeleRevivePostFix)}
+            self.setDisplayName(nameInfo)
+        elif self.getSkeleRevives() == 2:
+            nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self.name,
+             'dept': self.getStyleDept(),
+             'level': '%s%s' % (self.getActualLevel(), TTLocalizer.SkeleRevivePostFix2)}
+            self.setDisplayName(nameInfo)
+        elif self.getSkeleRevives() == 3:
+            nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self.name,
+             'dept': self.getStyleDept(),
+             'level': '%s%s' % (self.getActualLevel(), TTLocalizer.SkeleRevivePostFix3)}
+            self.setDisplayName(nameInfo)
+        elif self.getSkeleRevives() == 4:
+            nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self.name,
+             'dept': self.getStyleDept(),
+             'level': '%s%s' % (self.getActualLevel(), TTLocalizer.SkeleRevivePostFixUltimate)}
             self.setDisplayName(nameInfo)
         else:
             nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self.name,
              'dept': self.getStyleDept(),
-             'level': self.getActualLevel()}
+             'level': '%s%s' % (self.getActualLevel(), TTLocalizer.SkeleRevivePreFix)}
             self.setDisplayName(nameInfo)
 
     def getSkeleRevives(self):

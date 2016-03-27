@@ -53,7 +53,7 @@ class DistributedSuitPlannerAI(DistributedObjectAI.DistributedObjectAI, SuitPlan
     ]
     TOTAL_SUIT_BUILDING_PCT = 18 * CogdoPopFactor
     BUILDING_HEIGHT_DISTRIBUTION = [14, 18, 25, 23, 20]
-    defaultSuitName = simbase.config.GetString('suit-type', 'random')
+    defaultSuitName = simbase.config.GetString('suitType', 'random')
     if defaultSuitName == 'random':
         defaultSuitName = None
 
@@ -252,7 +252,7 @@ class DistributedSuitPlannerAI(DistributedObjectAI.DistributedObjectAI, SuitPlan
     def createNewSuit(self, blockNumbers, streetPoints, toonBlockTakeover=None,
             cogdoTakeover=None, minPathLen=None, maxPathLen=None,
             buildingHeight=None, suitLevel=None, suitType=None, suitTrack=None,
-            suitName=None, skelecog=None, revives=None, waiter=None):
+            suitName=None, skelecog=None, revives=None, isVirtual=None, waiter=None):
         startPoint = None
         blockNumber = None
         if self.notify.getDebug():
@@ -304,12 +304,10 @@ class DistributedSuitPlannerAI(DistributedObjectAI.DistributedObjectAI, SuitPlan
                     self.pendingBuildingHeights.append(buildingHeight)
         if suitName is None:
             suitDeptIndex, suitTypeIndex, flags = self.air.suitInvasionManager.getInvadingCog()
-            if flags & IFSkelecog:
-                skelecog = 1
-            if flags & IFWaiter:
-                waiter = True
-            if flags & IFV2:
-                revives = 1
+            skelecog = random.choice([0, 1])
+            isVirtual = random.choice([0, 1])
+            revives = random.choice([0, 1, 2, 3, 4])
+            waiter = False
             if suitDeptIndex is not None:
                 suitTrack = SuitDNA.suitDepts[suitDeptIndex]
             if suitTypeIndex is not None:

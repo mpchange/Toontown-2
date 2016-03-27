@@ -42,7 +42,7 @@ SuitsCEOBattle = (('sit', 'sit'),
  ('tray-walk', 'tray-walk'),
  ('tray-neutral', 'tray-neutral'),
  ('sit-lose', 'sit-lose'))
-f = (('throw-paper', 'throw-paper', 3.5), ('phone', 'phone', 3.5), ('shredder', 'shredder', 3.5))
+f = (('throw-paper', 'throw-paper', 3.5), ('phone', 'phone', 3.5), ('shredder', 'shredder', 3.5), ('glower', 'glower', 5))
 p = (('pencil-sharpener', 'pencil-sharpener', 5),
  ('pen-squirt', 'pen-squirt', 5),
  ('hold-eraser', 'hold-eraser', 5),
@@ -680,7 +680,7 @@ class Suit(Avatar.Avatar):
         elif self.isWaiter:
             return TTLocalizer.CogPanelWaiter
         elif self.skeleRevives:
-            return TTLocalizer.CogPanelRevives % (self.skeleRevives + 1)
+            return TTLocalizer.CogPanelRevives
         elif self.isSkelecog:
             return TTLocalizer.CogPanelSkeleton
         return ''

@@ -164,9 +164,9 @@ TheCogs = 'The Cogs'
 ASkeleton = 'a Skelecog'
 Skeleton = 'Skelecog'
 SkeletonP = 'Skelecogs'
-Av2Cog = 'a Version 2.0 Cog'
-v2Cog = 'Version 2.0 Cog'
-v2CogP = 'Version 2.0 Cogs'
+Av2Cog = 'a XR Cog'
+v2Cog = 'XR Cog'
+v2CogP = 'XR Cogs'
 ASkeleton = 'a Skelecog'
 Foreman = 'Factory Foreman'
 ForemanP = 'Factory Foremen'
@@ -1888,7 +1888,11 @@ BossbotSkelP = 'Bossbot Skelecogs'
 LawbotSkelP = 'Lawbot Skelecogs'
 CashbotSkelP = 'Cashbot Skelecogs'
 SellbotSkelP = 'Sellbot Skelecogs'
-SkeleRevivePostFix = ' v%s.0'
+SkeleRevivePostFix = 'XR Alpha'
+SkeleRevivePostFix2 = 'XR Beta'
+SkeleRevivePostFix3 = 'XR Gamma'
+SkeleRevivePostFixUltimate = 'XR Ultimate'
+SkeleRevivePreFix = 'XR'
 AvatarDetailPanelOK = lOK
 AvatarDetailPanelCancel = lCancel
 AvatarDetailPanelClose = lClose
@@ -4694,17 +4698,17 @@ WaiterInvasionBulletin = [
 ]
 V2InvasionBegin = [
  "Oh my, stock up on gags toons!",
- 'The Toon HQ has spotted a Version 2.0 Cog Invasion!',
- 'The V2 %(plural)s have taken over Toontown!!!'
+ 'The Toon HQ has spotted a XR Cog Invasion!',
+ 'The XR %(plural)s have taken over Toontown!!!'
 ]
 V2InvasionEnd = [
- 'The V2 %(singular)s invasion has ended!!!',
+ 'The XR %(singular)s invasion has ended!!!',
  'The Toons have saved the day once again!!!'
 ]
 V2InvasionBulletin = [
  "There is a Cog invasion in progress!!!",
- 'The Toon HQ has spotted a storm of Version 2.0 Cogs!',
- 'The V2 %(plural)s have taken over Toontown!!!'
+ 'The Toon HQ has spotted a storm of XR Cogs!',
+ 'The XR %(plural)s have taken over Toontown!!!'
 ]
 LeaderboardTitle = 'Toon Platoon'
 QuestScript101_0 = 'Come here! Use the arrow keys to move.'
@@ -5671,7 +5675,9 @@ NPCToonNames = {20000: 'Tutorial Tom',
  2018: 'Doctor Surlee',
  2019: 'Doctor Dimm',
  2020: 'Professor Prepostera',
- 2021: 'Painter Eddy',
+ 2021: 'Painter Jake',
+ 2022: 'Alec Tinn',
+ 2023: 'Slappy',
  2101: 'Dentist Daniel',
  2102: 'Sheriff Sherry',
  2103: 'Sneezy Kitty',
@@ -7680,12 +7686,12 @@ SummonDlgButton2 = 'Summon a Cog Invasion'
 SummonDlgButton3 = 'Summon a Field Office'
 SummonDlgButton4 = 'Summon a Skelecog Invasion'
 SummonDlgButton5 = 'Summon a Waiter Invasion'
-SummonDlgButton6 = 'Summon a Version 2.0 Invasion'
+SummonDlgButton6 = 'Summon a XR Invasion'
 SummonDlgBuildingConf = 'Would you like to summon a %s to a nearby Toon building?'
 SummonDlgInvasionConf = 'Would you like to summon a %s invasion?'
 SummonDlgSkelInvasionConf = 'Would you like to summon a %s (Skelecog) invasion?'
 SummonDlgWaiterInvasionConf = 'Would you like to summon a %s (Waiter) invasion?'
-SummonDlgV2InvasionConf = 'Would you like to summon a Version 2.0 %s invasion?'
+SummonDlgV2InvasionConf = 'Would you like to summon a XR %s invasion?'
 SummonDlgNumLeft = 'You have %s left.'
 SummonDlgDelivering = 'Delivering Summons...'
 SummonDlgBldgSuccess = 'You have successfully summoned the Cogs. %s has agreed to let them temporarily take over %s!'
@@ -8579,7 +8585,7 @@ InFieldOffice = ' in a Sellbot Field Office'
 CogPanelLevel = 'Level %s'
 CogPanelSkeleton = 'Skeleton'
 CogPanelVirtual = 'Virtual'
-CogPanelRevives = 'v%s.0'
+CogPanelRevives = 'XR'
 CogPanelWaiter = 'Waiter'
 
 def convertSecondsToDate(seconds):
@@ -8720,7 +8726,7 @@ CrateAccessoryPrize = 'Congratulations! You found a new accessory for your Toon.
 
 Stats = [
  'Cogs defeated: %s',
- 'V2.0 cogs defeated: %s',
+ 'XR cogs defeated: %s',
  'Skelecogs defeated: %s',
  'Jellybeans spent: %s',
  'Jellybeans earnt: %s',
