@@ -1,0 +1,67 @@
+Release Note History:
+
+1.0.0:
+1. Official Release
+
+1.0.1:
+1. Remove mentions of Satan in the code for Gardening
+
+1.1.0:
+1. 3D Cog Thief
+2. New Cog Phrases
+
+1.1.1:
+1. The ability to delete SOS Cards on the SOS Page in your Shtiker Book
+2. Removed Injector
+3. 4K, 6K, 8K, and 10K Resolution Support
+
+1.2.0:
+1. Tweaked .bat files for AI and Uberdog so now they don't need any input when you run them
+2. New Cheesy Effects
+3. Gave Tutorial Tom a Modern Makeover
+4. Moved the Elevator for MegaCorp in Sellbot HQ
+5. Shirt Style and Bottom Style Buttons for Clothes GUI in Make A Toon
+6. Resolution Support for 240p, 360p, 480p, and 1366 x 768
+7. New Page Extension for Options Page in Shtiker Book
+
+1.2.1:
+1. Glove Color Selector in Make A Toon
+
+1.2.2:
+1. Toon on Loading Screen
+2. Made the Cogs smarter in the Sellbot Factory and Sellbot MegaCorp by randomizing their levels
+3. Replaced Toontown Stride Head Textures for Downsizer and Spin Doctor with the Head Textures from Disney's Toontown Online
+
+1.3.0:
+1. In Game News from Disney's Toontown Online
+2. Made the Cogs smarter in the Cashbot HQ Mints by randomizing their levels
+3. Song and Dance Cog Attack for The Big Cheese
+4. Tweaked Death explosion for The Cogs
+5. Removed Language Selector on Pick a Toon
+
+1.3.2:
+1. Made The Cogs smarter in Lawbot HQ Offices by randomizing their levels.
+2. Made The Cogs smarter in Bossbot HQ Country Clubs by randomizing their levels.
+
+1.4.0:
+1. WASD Support
+
+1.4.0a:
+1. This release undos the changes in 1.5.0
+
+1.4.0b:
+1. New Display Resolutions
+2. Text Fixes for OTP Localizer
+3. Quest Nerfs for Dreamland
+
+1.6.0:
+1. New XR Operating System Update for The Cogs
+2. New Alec Tinn and Slappy SOS Cards
+
+1.6.1:
+1. Add Revives code to The Cogs in the Cashbot Mint
+
+1.6.2:
+1. Add Revives code to The Cogs in the Lawbot Office
+2. Add Revives code to The Cogs in the Bossbot Country Club
+3. Gave The Cogs a buff in HP and Attack Damage
