@@ -4765,12 +4765,12 @@ LawbotBossName = 'Chief Justice'
 BossbotBossName = 'C. E. O.'
 BossCogNameWithDept = '%(name)s\n%(dept)s'
 BossCogPromoteDoobers = 'You are hereby promoted to full-fledged %s.  Congratulations!'
-BossCogDoobersAway = {'s': 'Go! And make that sale!'}
+BossCogDoobersAway = {'s': 'Make The Chairman proud by making some sales.'}
 BossCogWelcomeToons = 'Welcome, new Cogs!'
 BossCogPromoteToons = 'You are hereby promoted to full-fledged %s.  Congratu--'
 CagedToonInterruptBoss = 'Hey! Hiya! Hey over there!'
-CagedToonRescueQuery = 'So, did you Toons come to rescue me?'
-BossCogDiscoverToons = 'Huh?  Toons!  In disguise!'
+CagedToonRescueQuery = 'Did you come to rescue me?'
+BossCogDiscoverToons = 'Toons! In disguise!'
 BossCogAttackToons = 'Attack!!'
 CagedToonDrop = ["Great job!  You're wearing him down!",
  "Keep after him!  He's on the run!",
@@ -5678,6 +5678,7 @@ NPCToonNames = {20000: 'Tutorial Tom',
  2021: 'Painter Jake',
  2022: 'Alec Tinn',
  2023: 'Slappy',
+ 2024: 'Roger Dog',
  2101: 'Dentist Daniel',
  2102: 'Sheriff Sherry',
  2103: 'Sneezy Kitty',

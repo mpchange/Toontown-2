@@ -208,6 +208,7 @@ NPCToonDict = {
  2021: (2000, lnames[2021], ('dss', 'ls', 's', 'm', 13, 0, 13, 13, 1, 6, 1, 6, 0, 18), 'm', 1, NPC_GLOVE),
  2022: (-1, lnames[2022],('cll', 'ls', 'l', 'm', 2, 0, 2, 2, 14, 9, 10, 9, 1, 14), 'm', 0, NPC_REGULAR),
  2023: (-1, lnames[2023], ('fls', 'ms', 'l', 'm', 14, 0, 14, 14, 152, 27, 139, 27, 59, 27), 'm', 0, NPC_REGULAR),
+ 2024: (-1, lnames[2024], ('dll', 'ls', 'l', 'm', 19, 0, 21, 8, 4, 0, 4, 0, 7, 15), 'm', 0, NPC_REGULAR),
  2101: (2601, lnames[2101], ('rll', 'ms', 'l', 'm', 15, 0, 15, 15, 0, 9, 0, 9, 0, 6), 'm', 1, NPC_REGULAR),
  2102: (2619, lnames[2102], 'r', 'f', 0, NPC_REGULAR),
  2103: (2616, lnames[2103], ('csl', 'ss', 's', 'm', 9, 0, 8, 5, 0, 11, 0, 11, 2, 10), 'm', 0, NPC_REGULAR),
@@ -923,6 +924,7 @@ HQnpcFriends = {
  2011: (ToontownBattleGlobals.TRAP_TRACK, 4, 180, 5),
  2022: (ToontownBattleGlobals.DROP_TRACK, 5, 300, 5),
  2023: (ToontownBattleGlobals.SOUND_TRACK, 5, 300, 5),
+ 2024: (ToontownBattleGlobals.HEAL_TRACK, 5, ToontownGlobals.MaxHpLimit, 5),
  3007: (ToontownBattleGlobals.TRAP_TRACK, 4, 70, 4),
  1001: (ToontownBattleGlobals.TRAP_TRACK, 4, 50, 3),
  3112: (ToontownBattleGlobals.LURE_TRACK, 5, 0, 5),
@@ -964,6 +966,7 @@ FOnpcFriends = {
  7022: (ToontownBattleGlobals.LURE_TRACK, 1, 0, 1),
  2022: (ToontownBattleGlobals.DROP_TRACK, 5, 300, 5),
  2023: (ToontownBattleGlobals.SOUND_TRACK, 5, 300, 5),
+ 2024: (ToontownBattleGlobals.HEAL_TRACK, 5, ToontownGlobals.MaxHpLimit, 5),
  7023: (ToontownBattleGlobals.LURE_TRACK, 3, 0, 2)
 }
 

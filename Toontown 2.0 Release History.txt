@@ -65,3 +65,9 @@ Release Note History:
 1. Add Revives code to The Cogs in the Lawbot Office
 2. Add Revives code to The Cogs in the Bossbot Country Club
 3. Gave The Cogs a buff in HP and Attack Damage
+
+1.7.0:
+1. Added SOS Card Reward to Sellbot MegaCorp
+2. New Roger Dog SOS Card
+3. New Cheesy Effects
+4. Updated Text for VP

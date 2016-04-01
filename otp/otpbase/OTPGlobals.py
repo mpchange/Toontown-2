@@ -43,6 +43,9 @@ CEGreenToon = 15
 CETinyToon = 16
 CEGiantToon = 17
 CEBeanToon = 18
+CERogerDog = 19
+CEFlippy = 20
+CESurlee = 21
 CEGhost = 'g'
 CEName2Id = {
  'normal': CENormal,
