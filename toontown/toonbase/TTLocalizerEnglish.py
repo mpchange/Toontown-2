@@ -8602,10 +8602,10 @@ BugReportNotice = 'Attention!\n\nThis button will open a browser which will send
 
 CodeRedemptionWarning = 'NOTICE: All codes can only be entered once!'
 
-CogInterfaceLabelOn = 'The cog battle interface is on.'
-CogInterfaceLabelOff = 'The cog battle interface is off.'
-TpTransitionLabelOn = 'The teleport transition is on.'
-TpTransitionLabelOff = 'The teleport transition is off.'
+CogInterfaceLabelOn = 'Cog Battle Interface- On'
+CogInterfaceLabelOff = 'Cog Battle Interface- Off'
+TpTransitionLabelOn = 'Teleport Transition- On'
+TpTransitionLabelOff = 'Teleport Transition- Off'
 FieldOfViewLabel = 'Field of View:'
 NametagStyleLabel = 'Nametag Style:'
 FishingPoleLabel = 'Fishing Rod:'
@@ -8710,7 +8710,7 @@ CEOSpeech = [
  'And thus we, the Cog Nation, are striving.',
  'I am very delighted by this news, I just wanted to thank you all for working so hard for this news.',
  "Wait, what's going on? I can't see but I hear explosions."
-] # Len of words + 10
+] 
 
 CrateRewardMessage1 = 'Nice! You have earned a crate! It will arrive in your mailbox shortly.'
 CrateRewardMessage2 = 'You can open it with keys from boss battles.'
@@ -8820,8 +8820,8 @@ BattleSOSPopupHP = '%s %s HP\n'
 
 DetailPanelSOS = 'SOS Cards'
 
-TeleportLabelOn = 'Accepting teleports.'
-TeleportLabelOff = 'Not accepting teleports.'
+TeleportLabelOn = 'Teleports- On'
+TeleportLabelOff = 'Teleports- Off.'
 TeleportPanelNoTeleport = '%s needs some time alone right now.'
 
 InventoryDeleteAll = 'DELETE ALL'
@@ -8829,8 +8829,8 @@ InventoryDeleteConfirm = "Are you sure you want to delete all your gags? Don't w
 
 ClothesGUICount = '%s/%s'
 
-FpsMeterLabelOn = 'The frame rate meter is on.'
-FpsMeterLabelOff = 'The frame rate meter is off.'
+FpsMeterLabelOn = 'Frame Rate Meter- On'
+FpsMeterLabelOff = 'Frame Rate Meter- Off'
 
 DefaultDoodleName = 'Smiley'
 

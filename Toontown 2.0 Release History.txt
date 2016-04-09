@@ -71,3 +71,12 @@ Release Note History:
 2. New Roger Dog SOS Card
 3. New Cheesy Effects
 4. Updated Text for VP
+
+1.7.1:
+1. Updated Text for Frame Rate Meter
+2. Updated Text for Teleports
+3. Updated Text for Cog Battle Interface
+4. Updated Text for Teleport Transitions
+5. Increased Time for Maze Game
+6. Increased Time for Diving Game
+7. Added fog in The Brrrgh and Donald's Dock
