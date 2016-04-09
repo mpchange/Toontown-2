@@ -6,11 +6,13 @@ from otp.otpbase import OTPGlobals
 PartsPerSuit = (17,
  14,
  12,
+ 10,
  10)
 PartsPerSuitBitmasks = (131071,
  130175,
  56447,
- 56411)
+ 56411,
+ 56375)
 AllBits = 131071
 MinPartLoss = 2
 MaxPartLoss = 4

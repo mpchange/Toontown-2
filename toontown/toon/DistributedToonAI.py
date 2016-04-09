@@ -85,14 +85,14 @@ class DistributedToonAI(DistributedPlayerAI.DistributedPlayerAI, DistributedSmoo
         self.glasses = (0, 0, 0)
         self.backpack = (0, 0, 0)
         self.shoes = (0, 0, 0)
-        self.cogTypes = [0, 0, 0, 0]
-        self.cogLevel = [0, 0, 0, 0]
-        self.cogParts = [0, 0, 0, 0]
-        self.cogRadar = [0, 0, 0, 0]
+        self.cogTypes = [0, 0, 0, 0, 0]
+        self.cogLevel = [0, 0, 0, 0, 0]
+        self.cogParts = [0, 0, 0, 0, 0]
+        self.cogRadar = [0, 0, 0, 0, 0]
         self.cogIndex = -1
         self.disguisePageFlag = 0
         self.sosPageFlag = 0
-        self.buildingRadar = [0, 0, 0, 0]
+        self.buildingRadar = [0, 0, 0, 0, 0]
         self.fishingRod = 0
         self.fishingTrophies = []
         self.trackArray = []
@@ -4370,19 +4370,20 @@ def maxToon(missingTrack=None):
             CogDisguiseGlobals.PartsPerSuitBitmasks[0],  # Bossbot
             CogDisguiseGlobals.PartsPerSuitBitmasks[1],  # Lawbot
             CogDisguiseGlobals.PartsPerSuitBitmasks[2],  # Cashbot
-            CogDisguiseGlobals.PartsPerSuitBitmasks[3]   # Sellbot
+            CogDisguiseGlobals.PartsPerSuitBitmasks[3],  # Sellbot
+            CogDisguiseGlobals.PartsPerSuitBitmasks[4] #Safetybot
         ]
     )
-    target.b_setCogLevels([49] * 4)
-    target.b_setCogTypes([7, 7, 7, 7])
+    target.b_setCogLevels([56] * 5)
+    target.b_setCogTypes([7, 7, 7, 7, 7])
 
     # Max their Cog gallery:
     deptCount = len(SuitDNA.suitDepts)
     target.b_setCogCount(list(CogPageGlobals.COG_QUOTAS[1]) * deptCount)
     cogStatus = [CogPageGlobals.COG_COMPLETE2] * SuitDNA.suitsPerDept
     target.b_setCogStatus(cogStatus * deptCount)
-    target.b_setCogRadar([1, 1, 1, 1])
-    target.b_setBuildingRadar([1, 1, 1, 1])
+    target.b_setCogRadar([1, 1, 1, 1, 1])
+    target.b_setBuildingRadar([1, 1, 1, 1, 1])
 
     # Max out their racing tickets:
     target.b_setTickets(99999)
@@ -4682,7 +4683,7 @@ def cogIndex(index):
     """
     Modifies the invoker's Cog index.
     """
-    if not -1 <= index <= 3:
+    if not -1 <= index <= 4:
         return 'Invalid Cog index.'
     invoker = spellbook.getInvoker()
     invoker.b_setCogIndex(index)

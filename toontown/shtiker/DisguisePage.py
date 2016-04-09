@@ -10,6 +10,7 @@ from toontown.coghq import CogDisguiseGlobals
 DeptColors = (Vec4(0.647, 0.608, 0.596, 1.0),
  Vec4(0.588, 0.635, 0.671, 1.0),
  Vec4(0.596, 0.714, 0.659, 1.0),
+ Vec4(0.761, 0.678, 0.69, 1.0),
  Vec4(0.761, 0.678, 0.69, 1.0))
 NumParts = max(CogDisguiseGlobals.PartsPerSuit)
 PartNames = ('lUpleg', 'lLowleg', 'lShoe', 'rUpleg', 'rLowleg', 'rShoe', 'lShoulder', 'rShoulder', 'chest', 'waist', 'hip', 'lUparm', 'lLowarm', 'lHand', 'rUparm', 'rLowarm', 'rHand')
@@ -45,6 +46,9 @@ class DisguisePage(ShtikerPage.ShtikerPage):
             elif dept == 's':
                 tabIndex = 4
                 textPos = (1.57, -1.05)
+            elif dept == 'sa':
+                tabIndex = 5
+                textPos = (1.57, -1.68)
             pageGeom = gui.find('**/page%d' % tabIndex)
             tabGeom = gui.find('**/tab%d' % tabIndex)
             tab = DirectButton(parent=self.pageFrame, relief=None, geom=tabGeom, geom_color=DeptColors[tabIndex - 1], text=SuitDNA.suitDeptFullnames[dept], text_font=ToontownGlobals.getSuitFont(), text_pos=textPos, text_roll=-90, text_scale=TTLocalizer.DPtab, text_align=TextNode.ACenter, text1_fg=Vec4(1, 0, 0, 1), text2_fg=Vec4(0.5, 0.4, 0.4, 1), text3_fg=Vec4(0.4, 0.4, 0.4, 1), command=self.doTab, extraArgs=[len(self.tabs)], pressEffect=0)
@@ -64,6 +68,8 @@ class DisguisePage(ShtikerPage.ShtikerPage):
         self.juryNoticeTitle.hide()
         self.stockOptionTitle = DirectLabel(parent=self.frame, relief=None, geom=gui.find('**/text_stock_option_progress'), geom_pos=(0, 0.1, 0))
         self.stockOptionTitle.hide()
+        self.safetyGearsTitle = DirectLabel(parent=self.frame, relief=None, geom=gui.find('**/text_stock_option_progress'), geom_pos=(0, 0.1, 0))
+        self.safetyGearsTitle.hide()
         self.progressTitle = self.meritTitle
         self.promotionTitle = DirectLabel(parent=self.frame, relief=None, geom=gui.find('**/text_ready4promotion'), geom_pos=(0, 0.1, 0))
         self.cogName = DirectLabel(parent=self.frame, relief=None, text='', text_font=ToontownGlobals.getSuitFont(), text_scale=TTLocalizer.DPcogName, text_align=TextNode.ACenter, pos=(-0.948, 0, -1.15))
@@ -183,6 +189,8 @@ class DisguisePage(ShtikerPage.ShtikerPage):
             self.progressTitle = self.juryNoticeTitle
         elif SuitDNA.suitDepts[index] == 'c':
             self.progressTitle = self.stockOptionTitle
+        elif SuitDNA.suitDepts[index] == 'sa':
+            self.progressTitle = self.safetyGearsTitle
         else:
             self.progressTitle = self.meritTitle
         self.progressTitle.show()

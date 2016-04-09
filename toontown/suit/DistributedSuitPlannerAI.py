@@ -28,6 +28,8 @@ if config.GetBool('want-cashbot-cogdo', False):
     ALLOWED_FO_TRACKS += 'c'
 if config.GetBool('want-bossbot-cogdo', False):
     ALLOWED_FO_TRACKS += 'b'
+if config.GetBool('want-safetybot-cogdo', False):
+    ALLOWED_FO_TRACKS += 'sa'
 if config.GetBool('want-omni-cogdo', False):
     ALLOWED_FO_TRACKS += 'slcb'
 
@@ -653,7 +655,8 @@ class DistributedSuitPlannerAI(DistributedObjectAI.DistributedObjectAI, SuitPlan
             'c': 0,
             'l': 0,
             'm': 0,
-            's': 0
+            's': 0,
+            'sa': 0
         }
         for sp in self.air.suitPlanners.values():
             sp.countNumBuildingsPerTrack(numPerTrack)
@@ -661,6 +664,7 @@ class DistributedSuitPlannerAI(DistributedObjectAI.DistributedObjectAI, SuitPlan
             numPerTrack['l'] += sp.pendingBuildingTracks.count('l')
             numPerTrack['m'] += sp.pendingBuildingTracks.count('m')
             numPerTrack['s'] += sp.pendingBuildingTracks.count('s')
+            numPerTrack['sa'] += sp.pendingBuildingTracks.count('sa')
         numPerHeight = {
             0: 0,
             1: 0,

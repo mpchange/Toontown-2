@@ -493,15 +493,18 @@ class CogTrackQuest(CogQuest):
     trackCodes = ['c',
      'l',
      'm',
-     's']
+     's',
+     'sa']
     trackNamesS = [TTLocalizer.BossbotS,
      TTLocalizer.LawbotS,
      TTLocalizer.CashbotS,
-     TTLocalizer.SellbotS]
+     TTLocalizer.SellbotS,
+     TTLocalizer.SafetybotS]
     trackNamesP = [TTLocalizer.BossbotP,
      TTLocalizer.LawbotP,
      TTLocalizer.CashbotP,
-     TTLocalizer.SellbotP]
+     TTLocalizer.SellbotP,
+     TTLocalizer.SafetybotP]
 
     def __init__(self, id, quest):
         CogQuest.__init__(self, id, quest)

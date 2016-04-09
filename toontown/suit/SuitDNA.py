@@ -51,7 +51,8 @@ suitATypes = ['ym',
  'nd',
  'tf',
  'm',
- 'mh']
+ 'mh',
+ 'sp']
 suitBTypes = ['p',
  'ds',
  'b',
@@ -69,11 +70,13 @@ suitCTypes = ['f',
  'tw',
  'mb',
  'cc',
- 'gh']
+ 'gh',
+ 'sp']
 suitDepts = ['c',
  'l',
  'm',
- 's']
+ 's',
+ 'sa']
 suitDeptZones = [ToontownGlobals.BossbotHQ,
  ToontownGlobals.LawbotHQ,
  ToontownGlobals.CashbotHQ,
@@ -81,15 +84,18 @@ suitDeptZones = [ToontownGlobals.BossbotHQ,
 suitDeptFullnames = {'c': TTLocalizer.Bossbot,
  'l': TTLocalizer.Lawbot,
  'm': TTLocalizer.Cashbot,
- 's': TTLocalizer.Sellbot}
+ 's': TTLocalizer.Sellbot,
+ 'sa': TTLocalizer.Safetybot}
 suitDeptFullnamesP = {'c': TTLocalizer.BossbotP,
  'l': TTLocalizer.LawbotP,
  'm': TTLocalizer.CashbotP,
- 's': TTLocalizer.SellbotP}
+ 's': TTLocalizer.SellbotP,
+ 'sa': TTLocalizer.SafetybotP}
 suitDeptFilenames = {'c': 'boss',
  'l': 'law',
  'm': 'cash',
- 's': 'sell'
+ 's': 'sell',
+ 'sa': 'safety'
 }
 suitDeptModelPaths = {'c': '**/CorpIcon',
  0: '**/CorpIcon',
@@ -98,11 +104,14 @@ suitDeptModelPaths = {'c': '**/CorpIcon',
  'm': '**/MoneyIcon',
  2: '**/MoneyIcon',
  's': '**/SalesIcon',
- 3: '**/SalesIcon'}
+ 3: '**/SalesIcon',
+ 'sa': '**/SalesIcon',
+ 4: '**/SalesIcon'}
 corpPolyColor = VBase4(0.95, 0.75, 0.75, 1.0)
 legalPolyColor = VBase4(0.75, 0.75, 0.95, 1.0)
 moneyPolyColor = VBase4(0.65, 0.95, 0.85, 1.0)
 salesPolyColor = VBase4(0.95, 0.75, 0.95, 1.0)
+safetyPolyColor = VBase4(0.95, 0.75, 0.95, 1.0)
 suitsPerLevel = [1,
  1,
  1,
@@ -135,6 +144,8 @@ def getSuitDept(name):
         return suitDepts[2]
     elif index < suitsPerDept * 4:
         return suitDepts[3]
+    elif index < suitsPerDept * 5:
+        return suitDepts[4]
     else:
         print 'Unknown dept for suit name: ', name
         return None
