@@ -111,7 +111,7 @@ CRNoConnectProxyNoPort = 'Could not connect to %s:%s.\n\nYou are communicating t
 CRNoDistrictsTryAgain = 'No Districts are available. Try again?'
 CRRejectRemoveAvatar = 'The avatar was not able to be deleted, try again another time.'
 CRLostConnection = 'Your internet connection to the servers has been unexpectedly broken.'
-CRBootedReasons = {100: 'You have been disconnected because someone else just logged in using your account on another computer.',
+CRBootedReasons = {100: 'You have been disconnected because someone else logged in using your account on another computer.',
  101: 'Please relaunch the game from the official launcher.',
  102: 'You are not authorized to use administrator privileges.',
  103: 'You were banned by a moderator.\n\nBehave next time!',
@@ -204,7 +204,8 @@ SCMenuWinter = 'WINTER'
 SCMenuSellbotInvasion = 'SELLBOT INVASION'
 SCMenuFieldOffice = 'FIELD OFFICES'
 SCMenuIdesOfMarch = 'GREEN'
-ScMenuBugs = 'Bugs'
+SCMenuBugs = 'Bugs'
+SCMenuQuotes = 'FAMOUS QUOTES'
 FriendInviteeTooManyFriends = '%s would like to be your friend, but you already have too many friends on your list!'
 FriendInviteeInvitation = '%s would like to be your friend.'
 FriendInviteeOK = lOK
@@ -276,7 +277,7 @@ EmoteList = ['Wave',
  'Delighted',
  'Furious',
  'Laugh',
- 'Rage']
+ 'Taunt']
 EmoteWhispers = ['%s waves.',
  '%s is happy.',
  '%s is sad.',
@@ -302,7 +303,7 @@ EmoteWhispers = ['%s waves.',
  '%s is delighted.',
  '%s is furious.',
  '%s is laughing.',
- '%s is raging.']
+ '%s taunts you.']
 EmoteFuncDict = {'Wave': 0,
  'Happy': 1,
  'Sad': 2,
@@ -328,7 +329,7 @@ EmoteFuncDict = {'Wave': 0,
  'Delighted': 22,
  'Furious': 23,
  'Laugh': 24,
- 'Rage': 25}
+ 'Taunt': 25}
 SuitBrushOffs = {'f': ["I'm late for a meeting."],
  'p': ['Push off.'],
  'ym': ['Yes Man says NO.'],
@@ -1234,6 +1235,18 @@ SpeedChatStaticTextToontown = {100: 'Hi!',
  10005: 'Be a honey! Vote Bear!',
  10006: 'Think big! Vote Pig!',
  10007: "Vote Goat - and that's all she wrote!",
+ 10008: "For science... You monster.",
+ 10009: "Rise and shine, Mr. Freeman. Rise ... and ... shine",
+ 10010: "That will be 100,000 bells for your rent, yes yes?",
+ 10011: "War... war never changes.",
+ 10012: "The cake is a lie.",
+ 10013: "Staaaaaaay Fresh!",
+ 10014: "Do a barrel roll!",
+ 10015: "Thank you, Mario, but our princess is in another castle!",
+ 10016: "So you have come this far and still you understand nothing. Every Light must fade, every Heart return to Darkness!",
+ 10017: "Do the windy thing!",
+ 10018: "Reality is an illusion, the universe is a hologram, buy gold, BYE!",
+ 10019: "They will know the joy of creation.",
  20000: SuitBrushOffs[None][0],
  20001: SuitBrushOffs[None][1],
  20002: SuitBrushOffs[None][2],

@@ -57,6 +57,10 @@ NametagFontNames = (
 )
 NametagLabel = ' Nametag'
 ScreenshotPath = 'user/screenshots/'
+GM_NAMES = ('TOON COUNCIL',
+ 'TOON TROOPER',
+ 'RESISTANCE RANGER',
+ 'GC')
 Flippy = 'Flippy'
 lTheBrrrgh = 'The Brrrgh'
 lDaisyGardens = 'Daisy Gardens'
@@ -266,7 +270,7 @@ QuestsBuildingQuestFloorNumbers = ('',
  'two+',
  'three+',
  'four+',
- 'five+')
+ 'five')
 QuestsBuildingQuestHeadline = 'DEFEAT'
 QuestsBuildingQuestProgressString = '%(progress)s of %(num)s defeated'
 QuestsBuildingQuestString = 'Defeat %s'
@@ -7115,6 +7119,7 @@ TipDict = {TIP_NONE: ('',),
               'Cogs tend to attack the Toon that has done them the most damage.',
               'Sound gags do not get bonus damage against lured Cogs.',
               'If you wait too long to attack a lured Cog, it will wake up. Higher level lures last longer.',
+              "XR Cogs are pretty smart, be careful and don't get distracted, because your Toon's happiness will be at risk",
               'There are fishing ponds on every street in Toontown. Some streets have unique fish.'),
  TIP_MINIGAME: ('After you fill up your Jellybean jar, any Jellybeans you get from Trolley Games automatically spill over into your bank.',
                 'You can use the arrow keys instead of the mouse in the "Match Jaymo" Trolley Game.',
@@ -7670,6 +7675,7 @@ LawbotBossTaunts = ['%s, I find you in contempt of court!',
  'Objection sustained!',
  'Strike that from the record.',
  'Your appeal has been rejected. I sentence you to sadness!',
+ 'SILENCE!!!!!!!!!!!',
  'Order in the court!']
 WitnessToonPrepareBattleTwo = "Oh no! They're putting only Cogs on the jury!\x07Quick, use the cannons and shoot some Toon jurors into the jury chairs.\x07We need %d to get a balanced scale."
 WitnessToonNoJuror = 'Oh oh, no Toon jurors. This will be a tough trial.'
@@ -8206,6 +8212,7 @@ BossbotBossPreTwo1 = "What's taking so long?"
 BossbotBossPreTwo2 = 'Get cracking and serve my banquet!'
 BossbotRTServeFood1 = 'Hehe, serve the food I place on these conveyor belts.'
 BossbotRTServeFood2 = 'If you serve a cog three times in a row it will explode.'
+BossbotResistanceToonName = "Good ol' Gil Giggles"
 BossbotPhase3Speech1 = "What's happening here?!"
 BossbotPhase3Speech2 = 'These waiters are toons!'
 BossbotPhase3Speech3 = 'Get them!!!'
@@ -8497,21 +8504,13 @@ GloveGuiTitle = 'Choose a glove color!'
 GloveGuiNotice = 'Costs %s jellybeans.'
 GloveGuiBuy = 'Buy'
 GloveGuiSameColor = 'You already have these!'
-LanguageButtonText = 'Language'
-LanguageSelectorTitle = 'Choose your language!'
-LanguageSelectorCurrent = 'Current language: %s'
-LanguageSelectorAvailable = 'Available languages:'
-LanguageSelectorBack = 'Back'
-LanguageSelectorConfirm = 'Are you sure you want to change your language to %s? This will close your game.'
-LanguageSelectorSameLanguage = "You're already using that language!"
-CogLevelLabelOn = 'The cog level GUI is on.'
-CogLevelLabelOff = 'The cog level GUI is off.'
+CogLevelLabelOn = 'Cog Level GUI- On'
+CogLevelLabelOff = 'Cog Level GUI- Off'
 
 HouseNames = ("Bungalow", "Tiki", "Teepee", "Castle", "Cupcake", "Cabin")
 CatalogPurchaseHouseType = "When you buy a new house type, the current one is replaced by it. To recover the old type, you'll need to buy it back. Continue?"
 BugReportButton = 'Report a Bug'
 BugReportNotice = 'Attention!\n\nThis button will open a browser which will send you to a third party bug tracker website. This site requires an Ubuntu One account to login. It may ask you to create an account.\n\nAre you sure you want to continue?'
-# Buffs
 
 buffIdStrings = {
   0: ('Your movement speed will be slightly increased for the next %d %s.',
@@ -8604,16 +8603,12 @@ def convertSecondsToDate(seconds):
     return '%d:%02d:%02d' % (h, m, s)
 
 ToonDefeatedMessage = '%s was defeated!'
-
-BugReportButton = 'Report a Bug'
-BugReportNotice = 'Attention!\n\nThis button will open a browser which will send you to a third party bug tracker website. This site requires an Ubuntu One account to login. It may ask you to create an account.\n\nAre you sure you want to continue?'
-
 CodeRedemptionWarning = 'NOTICE: All codes can only be entered once!'
 
-CogInterfaceLabelOn = 'The cog battle interface is on.'
-CogInterfaceLabelOff = 'The cog battle interface is off.'
-TpTransitionLabelOn = 'The teleport transition is on.'
-TpTransitionLabelOff = 'The teleport transition is off.'
+CogInterfaceLabelOn = 'Cog Battle Interface- On'
+CogInterfaceLabelOff = 'Cog Battle Interface- Off'
+TpTransitionLabelOn = 'Teleport Transition- On'
+TpTransitionLabelOff = 'Teleport Transition- Off'
 FieldOfViewLabel = 'Field of View:'
 NametagStyleLabel = 'Nametag Style:'
 FishingPoleLabel = 'Fishing Rod:'
@@ -8705,11 +8700,11 @@ JumpBossTaunts = {
  ]
 }
 CEOSpeech = [
- "Good evening Cogs, it's an honor having you here tonight in the Bossbot Clubhouse.",
- 'I apologize for sending invitations on such short notice, but your presence is urgent.',
- 'Lately, it appears the Toons have created strategies to fight against us.',
- "This is a sign that each day us Cogs are getting weaker, and they're getting stronger.",
- 'I have gathered you all here today not only to state this problem, but to propose an idea.',
+ "Good evening Cogs, it's an honor having you tonight in the Bossbot Clubhouse.",
+ 'I apologize for sending invitations on short notice, but your presence is urgent.',
+ 'It appears the Toons have created strategies to fight against us.',
+ "This is a sign, The Cogs are getting weaker, and they're getting stronger.",
+ 'I have gathered you today to propose an idea to fix this problem.',
  'This idea is the same one that was mentioned in the meeting 3 weeks ago, as to hire a new department of employees.',
  'If we were to do such however, they would be more or less assisting over attacking.',
  'We also can consider the odds that a department would have to be treated special.',
@@ -8718,7 +8713,7 @@ CEOSpeech = [
  'And thus we, the Cog Nation, are striving.',
  'I am very delighted by this news, I just wanted to thank you all for working so hard for this news.',
  "Wait, what's going on? I can't see but I hear explosions."
-] # Len of words + 10
+] 
 
 CrateRewardMessage1 = 'Nice! You have earned a crate! It will arrive in your mailbox shortly.'
 CrateRewardMessage2 = 'You can open it with keys from boss battles.'
@@ -8762,7 +8757,7 @@ StatPageClear = 'Clear'
 StatPageClearAsk = 'Are you sure you want to clear your stats? This is an irreversible action!'
 StatPageClearDone = 'Your stats have been cleared.'
 
-ChairAskToUse = 'Would you like to sit on this chair?'
+ChairAskToUse = 'Would you like to sit on the chair?'
 
 FriendSecretIntro = "If you are playing Toontown 2.0 with someone you know in the real world, you can become True Friends.  You can chat using the keyboard with your True Friends.  Other Toons won't understand what you're saying.\n\nYou do this by getting a True Friend Code.  Tell the True Friend Code to your friend, but not to anyone else.  When your friend types in your True Friend Code on his or her screen, you'll be True Friends in Toontown!"
 FriendSecretGetSecret = 'Get a True Friend Code'
@@ -8828,8 +8823,8 @@ BattleSOSPopupHP = '%s %s HP\n'
 
 DetailPanelSOS = 'SOS Cards'
 
-TeleportLabelOn = 'Accepting teleports.'
-TeleportLabelOff = 'Not accepting teleports.'
+TeleportLabelOn = 'Teleports- On'
+TeleportLabelOff = 'Teleports- Off.'
 TeleportPanelNoTeleport = '%s needs some time alone right now.'
 
 InventoryDeleteAll = 'DELETE ALL'
@@ -8837,8 +8832,8 @@ InventoryDeleteConfirm = "Are you sure you want to delete all your gags? Don't w
 
 ClothesGUICount = '%s/%s'
 
-FpsMeterLabelOn = 'The frame rate meter is on.'
-FpsMeterLabelOff = 'The frame rate meter is off.'
+FpsMeterLabelOn = 'Frame Rate Meter- On'
+FpsMeterLabelOff = 'Frame Rate Meter- Off'
 
 DefaultDoodleName = 'Smiley'
 

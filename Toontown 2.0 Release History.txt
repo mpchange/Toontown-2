@@ -71,3 +71,25 @@ Release Note History:
 2. New Roger Dog SOS Card
 3. New Cheesy Effects
 4. Updated Text for VP
+
+1.7.1:
+1. Updated Text for Frame Rate Meter
+2. Updated Text for Teleports
+3. Updated Text for Cog Battle Interface
+4. Updated Text for Teleport Transitions
+5. Increased Time for Maze Game
+6. Increased Time for Diving Game
+7. Added fog in The Brrrgh and Donald's Dock
+
+1.8.0:
+1. CEO On Golf Kart
+2. Replaced Rage with Taunt
+3. Added Fog in Daisy's Garden, Donald's Dreamland, Minnie's Melodyland, Chip and Dale's Acorn Acres, and Toontown Central
+4. Added New Famous Quotes Speedchat Section
+5. Spooky Magic Word Support in The Brrrgh, Donald's Dock, Daisy's Garden, 
+Donald's Dreamland, Goofy Speedway, Chip and Dale's Minigolf, Minnie's Melodyland, and Chip and Dale's Acorn Acres.
+6. New gmIcon Magic Word
+7. Changed Texture for the Friends List button
+8. Fixed Bug with In-Game News, by implementing CentralLogger
+9. New Display Resolutions
+10. Changed Glove Cost to 500 Jellybeans

@@ -501,11 +501,11 @@ PieCodeProsecutionPan = 6
 PieCodeLawyer = 7
 PieCodeInvasionSuit = 8
 PieCodeColors = {PieCodeBossCog: None,
- PieCodeNotBossCog: (0.8,
-                     0.8,
-                     0.8,
-                     1),
- PieCodeToon: None}
+PieCodeNotBossCog: (0.8,
+                    0.8,
+                    0.8,
+                    1),
+PieCodeToon: None}
 suitIndex = {
 'f' : 0,
 'p' : 1,
@@ -1599,7 +1599,7 @@ AV_TOUCH_CHECK_DIST_Z = 5.0
 AV_TOUCH_CHECK_TIMELIMIT_CL = 0.002
 AV_TOUCH_COUNT_LIMIT = 5
 AV_TOUCH_COUNT_TIME = 300
-GloveCost = 2000
+GloveCost = 500
 
 BMovementSpeed = 0
 BMovementSpeedMultiplier = 1.3
@@ -1616,8 +1616,8 @@ CLERK_GOODBYE = 0
 CLERK_GREETING = 1
 CLERK_TOOKTOOLONG = 2
 
-KnockKnockHeal = 12
-KnockKnockCooldown = 600
+KnockKnockHeal = 10
+KnockKnockCooldown = 500
 
 CRATE_NOT_OWNER = 0
 CRATE_NO_KEYS = 1
@@ -1684,14 +1684,14 @@ COLOR_SATURATION_MAX = 0.8
 COLOR_VALUE_MIN = 0.5
 COLOR_VALUE_MAX = 0.8
 
-TELEPORT_BUTTON_DEFAULT_COST = 50
+TELEPORT_BUTTON_DEFAULT_COST = 30
 TELEPORT_BUTTON_COSTS = {
  ToontownCentral: 5,
- DonaldsDock: 15,
- DaisyGardens: 30,
- MinniesMelodyland: 45,
- TheBrrrgh: 60,
- DonaldsDreamland: 75
+ DonaldsDock: 10,
+ DaisyGardens: 15,
+ MinniesMelodyland: 25,
+ TheBrrrgh: 30,
+ DonaldsDreamland: 35
 }
 
 def getTeleportButtonCost(hoodId):
