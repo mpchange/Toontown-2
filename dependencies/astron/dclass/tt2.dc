@@ -13,6 +13,7 @@ from otp.friends import FriendManager/AI
 from otp.distributed import DistributedDistrict/AI/UD
 from otp.distributed import DistributedDirectory/AI
 from otp.chat import ChatAgent/UD
+from otp.distributed import CentralLogger/AI/UD
 
 typedef uint8 bool;
 typedef uint32 DoId;
@@ -155,6 +156,7 @@ dclass DistributedPlayer : DistributedAvatar {
   setWishName(string = "") db ram;
   setWishNameState(string = "OPEN") db ram;
   setAdminAccess(uint16 = 0) required broadcast ownrecv db;
+  setAsGM(bool = 0) required ram broadcast ownrecv airecv;
 };
 
 dclass MagicWordManager : DistributedObject {
@@ -179,6 +181,11 @@ dclass FriendManager : DistributedObject {
   requestTFCode() airecv clsend;
   redeemTFCode(string) airecv clsend;
   tfResponse(uint8, string);
+};
+
+dclass CentralLogger : DistributedObject {
+  sendMessage(string(0-256), string(0-1024), uint32, uint32) clsend;
+  logAIGarbage() airecv;
 };
 
 from toontown.building import DistributedAnimatedProp/AI
@@ -405,7 +412,7 @@ from toontown.parties import DistributedPartyJukeboxActivity/AI
 from toontown.parties import DistributedPartyJukebox40Activity/AI
 from toontown.parties import DistributedPartyValentineJukeboxActivity/AI
 from toontown.parties import DistributedPartyValentineJukebox40Activity/AI
-from toontown.friends import TTSFriendsManager/UD
+from toontown.friends import TTFriendsManager/UD
 from toontown.safezone import DistributedGolfKart/AI
 from toontown.safezone import DistributedPicnicBasket/AI
 from toontown.distributed import DistributedTimer/AI
@@ -575,6 +582,7 @@ typedef int16 pair16[2];
 
 dclass DistributedToon : DistributedPlayer {
   setDNAString(blob) required broadcast ownrecv db;
+  setGM(uint16 = 0) required broadcast ownrecv db;
   setMaxBankMoney(int16 maxMoney = 10000) required broadcast ownrecv db;
   setBankMoney(int16 money = 0) required broadcast ownrecv db;
   setMaxMoney(int16 maxMoney = 40) required broadcast ownrecv db;
@@ -848,6 +856,7 @@ dclass DistributedBossCog : DistributedNode {
   zapToon(int16/10, int16/10, int16/10, int16/10, int16/10, int16/10, int8/100, int8/100, uint8, int16) airecv clsend;
   showZapToon(uint32, int16/10, int16/10, int16/10, int16/10, int16/10, int16/10, uint8, int16) broadcast;
   setAttackCode(uint8, uint32) broadcast;
+  setAttackSpeed(uint16/100) broadcast ram;
 };
 
 dclass DistributedSellbotBoss : DistributedBossCog {
@@ -3193,7 +3202,7 @@ struct Friend
   uint32 petId;
 };
 
-dclass TTSFriendsManager : DistributedObjectGlobal {
+dclass TTFriendsManager : DistributedObjectGlobal {
   removeFriend(uint32) clsend;
 
   requestFriendsList() clsend;

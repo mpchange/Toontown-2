@@ -2,17 +2,20 @@
   "acceptingNewFriends": {
     "100000001": true,
     "100000005": true,
-    "100000007": true
+    "100000007": true,
+    "100000010": true
   },
   "acceptingNonFriendWhispers": {
     "100000001": true,
     "100000005": true,
-    "100000007": true
+    "100000007": true,
+    "100000010": true
   },
   "acceptingTeleport": {
     "100000001": true,
     "100000005": true,
-    "100000007": true
+    "100000007": true,
+    "100000010": true
   },
   "cogInterface": true,
   "fov": 68.00347900390625,
